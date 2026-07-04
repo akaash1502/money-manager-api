@@ -27,10 +27,10 @@ public class ProfileService {
     private final AuthenticationManager authenticationManager;
     private final JWTUtil jwtUtil;
 
-    @Value("$app.activation.url")
+    @Value("${app.activation.url}")
     private String activationUrl;
 
-    @Value("server.servlet.context-path")
+    @Value("{server.servlet.context-path}")
     private String servletPath;
 
     public ProfileDTO registerProfile(ProfileDTO profileDTO){
