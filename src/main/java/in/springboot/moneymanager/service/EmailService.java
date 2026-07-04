@@ -14,8 +14,8 @@ public class EmailService {
     @Value("${spring.mail.properties.mail.smtp.from}")
     private String fromEmail;
 
-    public void sendEmail(String to,String subject,String body){
-        try{
+    public void sendEmail(String to, String subject, String body) {
+        try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(fromEmail);
             message.setTo(to);
@@ -23,7 +23,9 @@ public class EmailService {
             message.setText(body);
             javaMailSender.send(message);
         } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
+            System.err.println("Email sending failed: " + e.getMessage());
+            e.printStackTrace();
+            // Don't throw - log the error instead so registration succeeds
         }
     }
 }
