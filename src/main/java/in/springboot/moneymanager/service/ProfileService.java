@@ -30,7 +30,7 @@ public class ProfileService {
     @Value("${app.activation.url}")
     private String activationUrl;
 
-    @Value("{server.servlet.context-path}")
+    @Value("${server.servlet.context-path}")
     private String servletPath;
 
     public ProfileDTO registerProfile(ProfileDTO profileDTO){
